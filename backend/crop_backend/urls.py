@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', test_api),
     path('auth/', include('users.urls')),  # JWT auth endpoints
+    path("api/predictor/", include("predictor.urls")),
 ]
 
