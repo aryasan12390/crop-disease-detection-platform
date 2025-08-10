@@ -17,12 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from api.views import test_api
+# from api.views import test_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', test_api),
+    # path('test/', test_api),
     path('auth/', include('users.urls')),  # JWT auth endpoints
-    path("api/predictor/", include("predictor.urls")),
+    # path("api/predictor/", include("predictor.urls")),
+    path("api/", include("api.urls")),
 ]
 
