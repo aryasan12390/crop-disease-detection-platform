@@ -4,6 +4,8 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 from django.conf import settings
 from rest_framework.decorators import api_view, parser_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
@@ -29,6 +31,7 @@ def get_model_and_classes():
 
 
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser, FormParser])
 def predict_crop_disease(request):
     """
